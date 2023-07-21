@@ -1,5 +1,5 @@
 import { StatusBar } from 'expo-status-bar';
-import { FlatList, Text, TextInput, Touchable, TouchableOpacity, View } from 'react-native';
+import { Alert, FlatList, Text, TextInput, Touchable, TouchableOpacity, View } from 'react-native';
 import { styles } from './styles';
 import { Participant } from './components/Participant';
 
@@ -14,22 +14,26 @@ export function Home() {
     'John Smith',
     'Jane Smith',
     'John Wayne',
-    'Jane Wayne',
-    'Anna Smith',
-    'John Doe',
-    'Jane Doe',
-    'John Smith',
-    'Jane Smith',
-    'John Wayne',
-    'Jane Wayne',
+    'Jane Wayne'
   ]
 
   function handleParticipantAdd(): void {
-    console.log("Adicionando participante");
+    if (participants.includes('Lucas Accurcio')) {
+      return Alert.alert('Você já está participando do evento');
+    }
   }
 
-  function handleParticipantRemove(): void {
-    console.log("Excluindo participante");
+  function handleParticipantRemove(name: string): void {
+    Alert.alert('Remover', `Você deseja excluir o participante ${name}?`, [
+      {
+        text: 'Não',
+        style: 'cancel',
+      },
+      {
+        text: 'Sim',
+        onPress: () => Alert.alert('Deletado', 'Participante excluído com sucesso'),
+      }
+    ]);
   }
 
   return (
@@ -57,7 +61,7 @@ export function Home() {
           <Participant
             key={item}
             name={item}
-            onRemove={handleParticipantRemove}
+            onRemove={() => handleParticipantRemove(item)}
           />
         )}
         showsVerticalScrollIndicator={false}
