@@ -1,11 +1,16 @@
 import { StatusBar } from 'expo-status-bar';
 import { Text, TextInput, Touchable, TouchableOpacity, View } from 'react-native';
 import { styles } from './styles';
+import { Participant } from './components/Participant';
 
 export function Home() {
 
   function handleParticipantAdd(): void {
     console.log("Adicionando participante");
+  }
+
+  function handleParticipantRemove(): void {
+    console.log("Excluindo participante");
   }
 
   return (
@@ -25,6 +30,9 @@ export function Home() {
           <Text style={styles.buttonText}>+</Text>
         </TouchableOpacity>
       </View>
+      <Participant name="Lucas Accurcio" onRemove={handleParticipantRemove} />
+      <Participant name="Felippe Accurcio" onRemove={handleParticipantRemove} />
+      <Participant name="Tiago Accurcio" onRemove={handleParticipantRemove} />
     </View>
   );
 }
