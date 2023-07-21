@@ -1,9 +1,28 @@
 import { StatusBar } from 'expo-status-bar';
-import { Text, TextInput, Touchable, TouchableOpacity, View } from 'react-native';
+import { FlatList, Text, TextInput, Touchable, TouchableOpacity, View } from 'react-native';
 import { styles } from './styles';
 import { Participant } from './components/Participant';
 
 export function Home() {
+  const participants = [
+    'Lucas Accurcio',
+    'Felippe Accurcio',
+    'Tiago Accurcio',
+    'Anna Smith',
+    'John Doe',
+    'Jane Doe',
+    'John Smith',
+    'Jane Smith',
+    'John Wayne',
+    'Jane Wayne',
+    'Anna Smith',
+    'John Doe',
+    'Jane Doe',
+    'John Smith',
+    'Jane Smith',
+    'John Wayne',
+    'Jane Wayne',
+  ]
 
   function handleParticipantAdd(): void {
     console.log("Adicionando participante");
@@ -30,9 +49,24 @@ export function Home() {
           <Text style={styles.buttonText}>+</Text>
         </TouchableOpacity>
       </View>
-      <Participant name="Lucas Accurcio" onRemove={handleParticipantRemove} />
-      <Participant name="Felippe Accurcio" onRemove={handleParticipantRemove} />
-      <Participant name="Tiago Accurcio" onRemove={handleParticipantRemove} />
+
+      <FlatList
+        data={participants}
+        keyExtractor={item => item}
+        renderItem={({ item }) => (
+          <Participant
+            key={item}
+            name={item}
+            onRemove={handleParticipantRemove}
+          />
+        )}
+        showsVerticalScrollIndicator={false}
+        ListEmptyComponent={() => (
+          <Text style={styles.emptyList}>
+            Nenhum participante adicionado
+          </Text>
+        )}
+      />
     </View>
   );
 }
