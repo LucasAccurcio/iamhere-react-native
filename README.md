@@ -4,7 +4,7 @@ This is a simple mobile application developed in React Native using Expo and Typ
 
 ## App Demo
 
-!['I am here'](./assets/project/video/imhere.mp4)
+!['I am here'](./assets/project/video/imhere.gif)
 
 ## How to use the app
 
