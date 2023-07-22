@@ -24,6 +24,11 @@ export function Home() {
     if (participants.includes(participant)) {
       return Alert.alert('Participante existe', 'Já existe um participante na lista com esse nome');
     }
+    if (participant.trim() === '') {
+      setParticipant('');
+      return Alert.alert('Participante vazio', 'O nome do participante não pode ser vazio');
+    }
+
     setParticipants(prevState => [...prevState, participant]);
     setParticipant('');
   }
@@ -36,7 +41,7 @@ export function Home() {
       },
       {
         text: 'Sim',
-        onPress: () => Alert.alert('Deletado', 'Participante excluído com sucesso'),
+        onPress: () => setParticipants(prevState => prevState.filter(item => item !== name)),
       }
     ]);
   }
@@ -44,7 +49,7 @@ export function Home() {
   return (
     <View style={styles.container}>
       <Text style={styles.eventName}>Nome do Evento</Text>
-      <Text style={styles.eventDate}>Sexta-feira, 21 de Julho de  2023</Text>
+      <Text style={styles.eventDate}>Domingo, 23/07/2023</Text>
 
       <View style={styles.form}>
         <TextInput
