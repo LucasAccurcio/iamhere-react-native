@@ -8,9 +8,17 @@ This is a simple mobile application developed in React Native using Expo and Typ
 
 ## How to use the app
 
+### Appetize simulator
+
+Click on the link below to try out the application in the online emulator:
+
+[Appetize.io](https://appetize.io/app/6rjw6lb232oo5m6fnemqm7cvli)
+
+### Local environment
+
 To use the app in your local environment, follow the instructions below:
 
-### Prerequisites
+#### Prerequisites
 
 Before getting started, make sure you have the following installed on your system:
 
@@ -18,7 +26,7 @@ Before getting started, make sure you have the following installed on your syste
 2. [npm](https://www.npmjs.com/) - You need npm installed to manage the project's dependencies.
 3. [Expo CLI](https://expo.dev/) - Make sure you have Expo CLI installed globally on your machine.
 
-### Cloning the repository
+#### Cloning the repository
 
 To clone the repository to your local machine, run the following command in your terminal:
 
@@ -26,7 +34,7 @@ To clone the repository to your local machine, run the following command in your
 git clone git@github.com:LucasAccurcio/iamhere-react-native.git
 ```
 
-### Installing dependencies
+#### Installing dependencies
 
 After cloning the repository, navigate to the project directory and install the necessary dependencies using npm:
 
@@ -35,7 +43,7 @@ cd iamhere-react-native
 npm install
 ```
 
-### Starting the application
+#### Starting the application
 
 With the dependencies installed, you can start the application using Expo. Simply run the following command:
 
